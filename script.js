@@ -23,29 +23,44 @@ let animateLetter = setInterval(() => {
     if(k === spans.length) clearInterval(animateLetter);
 }, 70);
 
-
 // PROGRESS-BAR ANIMATION
-let border = document.querySelector('.border-line');
-let borderWidth = 0;
+    let border = document.querySelector('.border-line');
+    let borderWidth = 0;
 
 window.onscroll = () => {
-
-    if(this.oldScroll > this.scrollY){
-        borderWidth -= 1.5;
+  
+if(this.oldScroll > this.scrollY){
+        borderWidth -= 2.5;
     }else{
-        borderWidth += 1.5;
+        borderWidth += 2.5;
     }
 
     if(borderWidth <= 0){
         borderWidth = 0;
     }
-    
+
     if(borderWidth >= 100){
         borderWidth = 100;
     }
     
-   
     border.style.width = borderWidth + '%';
 
     this.oldScroll = this.scrollY;
+    
+    imageAnimation();
+}
+
+// IMAGES-ANIMATION
+const imageAnimation = () =>{
+    let sectionForAnimation = document.querySelector('.section2 .images');
+    let sectionPosition = sectionForAnimation.getBoundingClientRect().top;
+    let screenPosition = window.innerHeight / 1.3;
+  
+    let leftImage = document.querySelector('.slideFromLeft');
+    let rightImage = document.querySelector('.slideFromRight');
+
+    if(sectionPosition < screenPosition){
+        leftImage.classList.add('animated');
+        rightImage .classList.add('animated');
+    }
 }

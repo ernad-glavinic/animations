@@ -48,7 +48,23 @@ body{
 
 .section2 .images img{
     width: 50%;
+    transition: all 1s ease;
+    opacity: 0;
 }
+
+.section2 .images img.animated{
+    transform: translateX(0) !important;
+    opacity: 1;
+}
+
+.section2 .images img.slideFromLeft{
+    transform: translateX(-50%);
+}
+
+.section2 .images img.slideFromRight{
+    transform: translateX(50%);
+}
+
 
 .border-line{
     height: 2px;
