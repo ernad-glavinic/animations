@@ -1,3 +1,4 @@
+// HERO-TEXT ANIMATION
 let textTag = document.querySelector('.section1 h1');
 let text = textTag.textContent;
 
@@ -21,3 +22,30 @@ let animateLetter = setInterval(() => {
 
     if(k === spans.length) clearInterval(animateLetter);
 }, 70);
+
+
+// PROGRESS-BAR ANIMATION
+let border = document.querySelector('.border-line');
+let borderWidth = 0;
+
+window.onscroll = () => {
+
+    if(this.oldScroll > this.scrollY){
+        borderWidth -= 1.5;
+    }else{
+        borderWidth += 1.5;
+    }
+
+    if(borderWidth <= 0){
+        borderWidth = 0;
+    }
+    
+    if(borderWidth >= 100){
+        borderWidth = 100;
+    }
+    
+   
+    border.style.width = borderWidth + '%';
+
+    this.oldScroll = this.scrollY;
+}
